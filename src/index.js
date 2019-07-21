@@ -1,14 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { createStore } from 'redux';
 import App from './App';
-
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { createSagaMiddleWare } from 'redux-saga';
 import Reducer from './reducer';
 
-const sagaMiddleware = createSagaMiddleWare();
-
-const store = createStore(Reducer, applyMiddleware(sagaMiddleware));
+const store = createStore(Reducer);
 
 render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
