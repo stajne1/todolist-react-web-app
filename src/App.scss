@@ -16,4 +16,18 @@
             text-decoration: line-through;
         }
     }
+
+    .visibility-filter{
+        padding-top: 15px;
+
+        p {
+            display: inline;
+            padding: 5px;
+            
+            &.active{
+                cursor: pointer;
+                color: chocolate;
+            }
+        }
+    }
 }

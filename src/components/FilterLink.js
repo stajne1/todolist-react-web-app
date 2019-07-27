@@ -1,10 +1,10 @@
 import React from 'react';
 const Filterlink = props => (
-    <span 
-        className={!props.isSelected ? 'active': null}
-        onClick={props.onClick}
+    <p 
+        className={!props.isSelected ? 'active' : null}
+        onClick={() => !props.isSelected ? props.click(props.filterKey) : null}
     >
         {props.filterText}
-    </span>
+    </p>
 );
 export default Filterlink;
