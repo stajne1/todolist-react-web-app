@@ -6,14 +6,31 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     .todo-list{
+        margin-left: -40px;
 
         li{
             cursor: pointer;
             font-size: 16px;
-        }
+            width: 70%;
+            list-style-type: none;
+            display: inline-block;
+            padding: 10px 0;
 
-        li.completed {
-            text-decoration: line-through;
+            span{
+                display: inline-block;
+
+                &.text{
+                    float: left;
+                }
+
+                &.delete{
+                    float: right;
+                }
+
+                &.completed{
+                    text-decoration: line-through;
+                }
+            }
         }
     }
 

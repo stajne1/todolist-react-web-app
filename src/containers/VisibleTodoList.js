@@ -9,13 +9,16 @@ class VisibleTodoList extends Component {
     render(){
         return(
             <ul className='todo-list'>
-            {this.props.todos.map(todo => (
+            {this.props.todos.length 
+            ? this.props.todos.map(todo => (
                 <ListItem 
                     key={todo.id}
                     todo={todo}
-                    onClick={this.props.toggleTodo}
+                    toggleTodo={this.props.toggleTodo}
+                    deleteTodo={this.props.deleteTodo}
                 />
-            ))}
+            ))
+            : <p>NO TODOS IN THE LIST</p>}
             </ul>
         );
     }
@@ -29,7 +32,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleTodo: id => dispatch(actions.toggleTodo(id))
+        toggleTodo: id => dispatch(actions.toggleTodo(id)),
+        deleteTodo: id => dispatch(actions.deleteTodo(id))
     }
 }
 
