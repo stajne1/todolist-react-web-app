@@ -52,7 +52,7 @@ const AddTodo = props => {
                 color="primary"
                 variant="contained"
                 className={classes.button}>
-                Add Todo
+                Add
         </Button>
         </Box>
     );
