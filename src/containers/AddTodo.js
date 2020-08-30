@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useContext } from 'react';
 
 import { TextField, Button, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { db } from '../firebase';
 import firebase from 'firebase';
+import { userContext } from '../userProvider';
 
 const useStyles = makeStyles((theme) => ({
     boxPadding: {
@@ -24,10 +24,11 @@ const useStyles = makeStyles((theme) => ({
 const AddTodo = props => {
     const [todoText, setText] = useState('');
     const classes = useStyles();
+    const user = useContext(userContext);
 
     const addTodo = () => {
         db.collection('todos').add({
-            id: props.nextID,
+            createdBy: user.email,
             text: todoText,
             completed: false,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -58,10 +59,4 @@ const AddTodo = props => {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        nextID: state.todos.length + 1
-    }
-}
-
-export default connect(mapStateToProps)(AddTodo);
+export default AddTodo;

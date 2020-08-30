@@ -13,8 +13,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     list: {
-        height: '400px',
-        'overflow-y': 'auto'
+        'overflow-y': 'auto',
+        'flex-grow': '5'
     },
     root: {
         ...theme.typography.button,
